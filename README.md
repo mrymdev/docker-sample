@@ -1,8 +1,8 @@
-Docker Course
+# Docker Sample
 
-In this sample we have created sample rest controller.
+In this sample we have created sample rest controller to run with docker.
 
-Running project
+## Running project
 
 In order to run app create project image with following command:
 
