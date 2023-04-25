@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-sample
+  namespace: test-sample
+spec:
+  replicas: 3
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: docker-sample
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: docker-sample
+    spec:
+      containers:
+      - name: app
+        image: docker-sample
+        ports:
+        - containerPort: 8080
+        env:
+        - name: TZ
+          value: Asia/Tehran
