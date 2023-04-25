@@ -24,3 +24,21 @@ spec:
         env:
         - name: TZ
           value: Asia/Tehran
+        livenessProbe:
+          failureThreshold: 2
+          httpGet:
+            path: /actuator/health
+            port: 8081
+          initialDelaySeconds: 120
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        readinessProbe:
+          failureThreshold: 50
+          httpGet:
+            path: /actuator/health
+            port: 8081
+          initialDelaySeconds: 120
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
